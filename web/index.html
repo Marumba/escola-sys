@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Login - Escola</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-md-offset-4">
+                    <h1 class="text-center login-title">Entre com seu usuário</h1>
+                    <div class="account-wall">
+                        <span class="glyphicon glyphicon-user profile-img"></span>
+                        <form class="form-signin" action="login.jsp">
+                        <input type="text" name="user" class="form-control" placeholder="Usuário" required autofocus>
+                        <input type="password" name="pass" class="form-control" placeholder="Senha" required>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Sign in</button>
+                        <label class="checkbox pull-left">
+                            <input type="checkbox" value="remember-me">
+                            Lembrar de mim
+                        </label>
+                        <a href="#" class="pull-right need-help">Precisa de ajuda? </a><span class="clearfix"></span>
+                        </form>
+                    </div>
+                    <a href="registrar.html" class="text-center new-account">Criar uma conta</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
