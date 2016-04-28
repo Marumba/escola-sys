@@ -4,13 +4,16 @@
     Author     : Marumba
 --%>
 
-<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="CRUD.UsuarioController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Listar Usuários</title>
+
 </head>
 <body>
     <table border=1>
@@ -27,13 +30,13 @@
         <tbody>
             <c:forEach items="${usuarios}" var="usuario">
                 <tr>
-                    <td><c:out value="${usuario.id}" /></td>
+                    <td><c:out value="${usuario.userid}" /></td>
                     <td><c:out value="${usuario.funcao}" /></td>
                     <td><c:out value="${usuario.nome}" /></td>
                     <td><fmt:formatDate pattern="yyyy-MMM-dd" value="${usuario.entrada}" /></td>
                     <td><c:out value="${usuario.email}" /></td>
-                    <td><a href="UsuarioController?action=edit&userId=<c:out value="${usuario.id}"/>">Update</a></td>
-                    <td><a href="UsuarioController?action=delete&userId=<c:out value="${usuario.id}"/>">Delete</a></td>
+                    <td><a href="UsuarioController?action=edit&userId=<c:out value="${usuario.userid}"/>">Update</a></td>
+                    <td><a href="UsuarioController?action=delete&userId=<c:out value="${usuario.userid}"/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

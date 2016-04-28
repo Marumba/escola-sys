@@ -4,38 +4,42 @@ import java.util.Date;
 
 public class Usuario {
 
-    private int id;
+    private int userid;
     private String funcao;
     private String nome;
     private Date entrada;
     private String email;
     private String senha;
     public int getUserid() {
-        return id;
+        return userid;
     }
-    public void setUserid(int id) {
-        this.id = id;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
-    public String getFunction() {
+    public String getFuncao() {
         return funcao;
     }
-    public void setFunction(String funcao) {
+    public void setFuncao(String funcao) {
         this.funcao = funcao;
     }
-    public String getName() {
+    public String getNome() {
         return nome;
     }
-    public void setName(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
-    public Date getEnterDate() {
-        return entrada;
-    }
-    public String getPass() {
+
+    public String getSenha() {
         return senha;
     }
-    public void setEnterDate(Date entrada) {
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    public void setEntrada(Date entrada) {
         this.entrada = entrada;
+    }
+    public Date getEntrada() {
+        return entrada;
     }
     public String getEmail() {
         return email;
@@ -45,7 +49,7 @@ public class Usuario {
     }
     @Override
     public String toString() {
-        return "Usuário [id=" + id + ", nome=" + nome
+        return "Usuário [id=" + userid + ", nome=" + nome
                 + ", data de entrada=" + entrada + ", email="
                 + email + "]";
     }    

@@ -20,13 +20,12 @@ public class UsuarioDao {
     public void addUser(Usuario user) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("insert into usuarios(funcao,nome,email,senha,entrada) values (?, ?, ?, ? )");
+                    .prepareStatement("insert into usuarios(funcao,nome,email,senha) values (?, ?, ?, ? )");
             // Parameters start with 1
             preparedStatement.setString(1, "adm");
-            preparedStatement.setString(2, user.getName());           
+            preparedStatement.setString(2, user.getNome());           
             preparedStatement.setString(3, user.getEmail());
-            preparedStatement.setString(4, user.getPass());
-            preparedStatement.setDate(5, new java.sql.Date(user.getEnterDate().getTime()));
+            preparedStatement.setString(4, user.getSenha());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -37,7 +36,7 @@ public class UsuarioDao {
     public void deleteUser(int userId) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("delete from users where id=?");
+                    .prepareStatement("delete from users where userid=?");
             // Parameters start with 1
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();
@@ -50,12 +49,12 @@ public class UsuarioDao {
     public void updateUser(Usuario user) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("update users set nome=?, entrada=?, email=?" +
-                            "where id=?");
+                    .prepareStatement("update usuarios set nome=?, email=?" +
+                            "where userid=?");
             // Parameters start with 1
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setDate(2, new java.sql.Date(user.getEnterDate().getTime()));
-            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(1, user.getNome());
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getSenha());
             preparedStatement.setInt(4, user.getUserid());
             preparedStatement.executeUpdate();
 
@@ -71,10 +70,10 @@ public class UsuarioDao {
             ResultSet rs = statement.executeQuery("select * from usuarios");
             while (rs.next()) {
                 Usuario user = new Usuario();
-                user.setUserid(rs.getInt("id"));
-                user.setName(rs.getString("nome"));
-                user.setFunction(rs.getString("funcao"));
-                user.setEnterDate(rs.getDate("entrada"));
+                user.setUserid(rs.getInt("userid"));
+                user.setNome(rs.getString("nome"));
+                user.setFuncao(rs.getString("funcao"));
+                user.setEntrada(rs.getDate("entrada"));
                 user.setEmail(rs.getString("email"));
                 users.add(user);
             }
@@ -89,15 +88,15 @@ public class UsuarioDao {
         Usuario user = new Usuario();
         try {
             PreparedStatement preparedStatement = connection.
-                    prepareStatement("select * from usuarios where id=?");
+                    prepareStatement("select * from usuarios where userid=?");
             preparedStatement.setInt(1, userId);
             ResultSet rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
-                user.setUserid(rs.getInt("id"));
-                user.setName(rs.getString("funcao"));
-                user.setFunction(rs.getString("nome"));
-                user.setEnterDate(rs.getDate("entrada"));
+                user.setUserid(rs.getInt("userid"));
+                user.setNome(rs.getString("nome"));
+                user.setFuncao(rs.getString("funcao"));
+                user.setEntrada(rs.getDate("entrada"));
                 user.setEmail(rs.getString("email"));
             }
         } catch (SQLException e) {
