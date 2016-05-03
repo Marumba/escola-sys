@@ -1,6 +1,7 @@
 
-package CRUD;
+package CRUD.model;
 
+import CRUD.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -104,5 +105,22 @@ public class UsuarioDao {
         }
 
         return user;
+    }
+    
+    public boolean verifyLogin(String email, String senha){
+        try {
+            PreparedStatement preparedStatement = connection.
+                    prepareStatement("select * from usuarios where email=? and senha=?");
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, senha);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

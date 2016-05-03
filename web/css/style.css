@@ -2,6 +2,9 @@
     Created on : Apr 22, 2016
     Author     : Marumba
 */
+body {
+    padding: 15px 0;
+}
 .form-signin
 {
     max-width: 330px;
@@ -101,7 +104,7 @@ div.cursos-tab-menu div.list-group>a{
 }
 div.cursos-tab-menu div.list-group>a .glyphicon,
 div.cursos-tab-menu div.list-group>a .fa {
-  color: #5A55A3;
+  color: #337ab7;
 }
 div.cursos-tab-menu div.list-group>a:first-child{
   border-top-right-radius: 0;
@@ -114,8 +117,7 @@ div.cursos-tab-menu div.list-group>a:last-child{
 div.cursos-tab-menu div.list-group>a.active,
 div.cursos-tab-menu div.list-group>a.active .glyphicon,
 div.cursos-tab-menu div.list-group>a.active .fa{
-  background-color: #5A55A3;
-  background-image: #5A55A3;
+  background-color: #337ab7;
   color: #ffffff;
 }
 div.cursos-tab-menu div.list-group>a.active:after{

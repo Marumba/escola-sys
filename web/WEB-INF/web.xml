@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>Escola</display-name>
-  <welcome-file-list>
-    <welcome-file>redirect.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>UsuarioController</display-name>
-    <servlet-name>UsuarioController</servlet-name>
-    <servlet-class>CRUD.UsuarioController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UsuarioController</servlet-name>
-    <url-pattern>/UsuarioController</url-pattern>
-  </servlet-mapping>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>Escola</display-name>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <description/>
+        <display-name>UsuarioController</display-name>
+        <servlet-name>UsuarioController</servlet-name>
+        <servlet-class>CRUD.controller.UsuarioController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioController</servlet-name>
+        <url-pattern>/UsuarioController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description/>
+        <display-name>AlunoController</display-name>
+        <servlet-name>AlunoController</servlet-name>
+        <servlet-class>CRUD.controller.AlunoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlunoController</servlet-name>
+        <url-pattern>/AlunoController</url-pattern>
+    </servlet-mapping>
 </web-app>

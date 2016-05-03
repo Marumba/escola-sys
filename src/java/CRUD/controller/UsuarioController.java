@@ -1,6 +1,10 @@
 
-package CRUD;
+package CRUD.controller;
 
+import CRUD.Usuario;
+import CRUD.model.UsuarioDao;
+import CRUD.Aluno;
+import CRUD.model.AlunoDao;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,12 +19,16 @@ import javax.servlet.http.HttpServletResponse;
 public class UsuarioController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/usuario.jsp";
+    private static String LOGIN = "/main.jsp";
+    private static String BAD_LOGIN = "/bad_login.jsp";
     private static String LIST_USER = "/listarUsuario.jsp";
     private UsuarioDao dao;
+    private AlunoDao daoAluno;
 
     public UsuarioController() {
         super();
         dao = new UsuarioDao();
+        daoAluno = new AlunoDao();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,9 +48,19 @@ public class UsuarioController extends HttpServlet {
         } else if (action.equalsIgnoreCase("listarUsuario")){
             forward = LIST_USER;
             request.setAttribute("usuarios", dao.getAllUsers());
-        } else {
+        } else if (action.equalsIgnoreCase("logar")){
+            String email = request.getParameter("user");
+            String senha = request.getParameter("pass");
+            Boolean login = dao.verifyLogin(email, senha);
+            if (login == true){
+                forward = LOGIN;
+                request.setAttribute("aluno", daoAluno.countRows());
+            }else{
+                forward = BAD_LOGIN;
+            }
+        } /*else {
             forward = INSERT_OR_EDIT;
-        }
+        }*/
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

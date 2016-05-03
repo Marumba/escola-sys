@@ -1,4 +1,11 @@
-<!DOCTYPE HTML>
+<%-- 
+    Document   : index
+    Created on : May 3, 2016, 12:18:26 AM
+    Author     : Marumba
+--%>
+
+<%@page import="CRUD.controller.UsuarioController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Login - Escola</title>
@@ -17,9 +24,10 @@
                     <h1 class="text-center login-title">Entre com seu usuário</h1>
                     <div class="account-wall">
                         <span class="glyphicon glyphicon-user profile-img"></span>
-                        <form class="form-signin" action="login.jsp">
+                        <form class="form-signin" action="UsuarioController" method="get">
                         <input type="text" name="user" class="form-control" placeholder="Usuário" required autofocus>
                         <input type="password" name="pass" class="form-control" placeholder="Senha" required>
+                        <input type="hidden" name="action" value="logar" />
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                             Entrar</button>
                         </form>
