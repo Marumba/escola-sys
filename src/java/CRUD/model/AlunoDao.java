@@ -20,7 +20,7 @@ public class AlunoDao {
         connection = Conexao.Conectar();
     }
 
-    public void addAluno(Aluno aluno) {
+    public void add(Aluno aluno) {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("insert into alunos(rg,nome,cpf) values (?, ?, ?)");
@@ -34,7 +34,7 @@ public class AlunoDao {
         }
     }
 
-    public void deleteAluno(int alunoRa) {
+    public void delete(int alunoRa) {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("delete from alunos where ra=?");
@@ -46,7 +46,7 @@ public class AlunoDao {
         }
     }
 
-    public void updateAluno(Aluno aluno) {
+    public void update(Aluno aluno) {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("update alunos set nome=?, rg=?, cpf=?" +
@@ -61,7 +61,7 @@ public class AlunoDao {
         }
     }
 
-    public List<Aluno> getAllAlunos() {
+    public List<Aluno> getAll() {
         List<Aluno> alunos = new ArrayList<Aluno>();
         try {
             Statement statement = connection.createStatement();
@@ -81,7 +81,7 @@ public class AlunoDao {
         return alunos;
     }
 
-    public Aluno getAlunoByRa(int alunoId) {
+    public Aluno getById(int alunoId) {
         Aluno aluno = new Aluno();
         try {
             PreparedStatement preparedStatement = connection.

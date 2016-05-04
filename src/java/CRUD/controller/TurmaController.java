@@ -1,8 +1,8 @@
 
 package CRUD.controller;
 
-import CRUD.Aluno;
-import CRUD.model.AlunoDao;
+import CRUD.Turma;
+import CRUD.model.TurmaDao;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AlunoController extends HttpServlet {
+public class TurmaController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/aluno.jsp";
-    private static String LIST_USER = "/listarAluno.jsp";
+    private static String INSERT_OR_EDIT = "/turma.jsp";
+    private static String LIST_USER = "/listarTurma.jsp";
     private static String MAIN = "/redirect.jsp";
-    private AlunoDao dao;
+    private TurmaDao dao;
 
-    public AlunoController() {
+    public TurmaController() {
         super();
-        dao = new AlunoDao();
+        dao = new TurmaDao();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,18 +31,18 @@ public class AlunoController extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action.equalsIgnoreCase("delete")){
-            int alunoRa = Integer.parseInt(request.getParameter("userId"));
-            dao.delete(alunoRa);
+            int id = Integer.parseInt(request.getParameter("userId"));
+            dao.delete(id);
             forward = LIST_USER;
-            request.setAttribute("alunos", dao.getAll());    
+            request.setAttribute("turmas", dao.getAll());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
-            int alunoRa = Integer.parseInt(request.getParameter("userId"));
-            Aluno user = dao.getById(alunoRa);
-            request.setAttribute("aluno", user);
-        } else if (action.equalsIgnoreCase("listarAluno")){
+            int id = Integer.parseInt(request.getParameter("userId"));
+            Turma user = dao.getById(id);
+            request.setAttribute("turma", user);
+        } else if (action.equalsIgnoreCase("listarTurma")){
             forward = LIST_USER;
-            request.setAttribute("alunos", dao.getAll());
+            request.setAttribute("turmas", dao.getAll());
         } else {
             forward = MAIN;
         }
@@ -52,19 +52,23 @@ public class AlunoController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Aluno aluno = new Aluno();
-        aluno.setNome(request.getParameter("nome"));
-        aluno.setRg(request.getParameter("rg"));
-        aluno.setCpf(Long.parseLong(request.getParameter("cpf").trim()));
-        String ra = request.getParameter("ra");
-        if(ra == null || ra.isEmpty())
+        Turma turma = new Turma();
+        String [] valores = request.getParameterValues("periodo");
+        String periodo = "";
+        for (int i = 0; i < valores.length; i++) {
+            periodo += valores[i] + " ";
+        }
+        turma.setNome(request.getParameter("nome"));
+        turma.setPeriodo(periodo.trim());
+        String cod = request.getParameter("cod");
+        if(cod == null || cod.isEmpty())
         {
-            dao.add(aluno);
+            dao.add(turma);
         }
         else
         {
-            aluno.setRa(Integer.parseInt(ra));
-            dao.update(aluno);
+            turma.setCod(Integer.parseInt(cod));
+            dao.update(turma);
         }
         RequestDispatcher view = request.getRequestDispatcher(MAIN);
         view.forward(request, response);

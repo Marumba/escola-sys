@@ -4,14 +4,14 @@
     Author     : Marumba
 --%>
 
-<%@page import="CRUD.UsuarioController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="CRUD.controller.MainController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>Redirect</title>
 </head>
 <body>
-<jsp:forward page="/UsuarioController?action=listarUsuario" />
+<jsp:forward page="/MainController?action=redirect" />
 </body>
 </html>

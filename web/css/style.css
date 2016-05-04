@@ -5,6 +5,10 @@
 body {
     padding: 15px 0;
 }
+
+h1 {
+  margin-bottom: 40px;
+}
 .form-signin
 {
     max-width: 330px;
@@ -129,7 +133,7 @@ div.cursos-tab-menu div.list-group>a.active:after{
   border-left: 0;
   border-bottom: 13px solid transparent;
   border-top: 13px solid transparent;
-  border-left: 10px solid #5A55A3;
+  border-left: 10px solid #337ab7;
 }
 
 div.cursos-tab-content{

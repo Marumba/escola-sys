@@ -4,7 +4,7 @@
     Author     : Marumba
 --%>
 
-<%@page import="CRUD.controller.UsuarioController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="CRUD.controller.MainController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +24,7 @@
                     <h1 class="text-center login-title">Entre com seu usuário</h1>
                     <div class="account-wall">
                         <span class="glyphicon glyphicon-user profile-img"></span>
-                        <form class="form-signin" action="UsuarioController" method="get">
+                        <form method="POST" class="form-signin" action="MainController">
                         <input type="text" name="user" class="form-control" placeholder="Usuário" required autofocus>
                         <input type="password" name="pass" class="form-control" placeholder="Senha" required>
                         <input type="hidden" name="action" value="logar" />

@@ -6,13 +6,13 @@
     </welcome-file-list>
     <servlet>
         <description/>
-        <display-name>UsuarioController</display-name>
-        <servlet-name>UsuarioController</servlet-name>
-        <servlet-class>CRUD.controller.UsuarioController</servlet-class>
+        <display-name>MainController</display-name>
+        <servlet-name>MainController</servlet-name>
+        <servlet-class>CRUD.controller.MainController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UsuarioController</servlet-name>
-        <url-pattern>/UsuarioController</url-pattern>
+        <servlet-name>MainController</servlet-name>
+        <url-pattern>/MainController</url-pattern>
     </servlet-mapping>
     <servlet>
         <description/>
@@ -23,5 +23,45 @@
     <servlet-mapping>
         <servlet-name>AlunoController</servlet-name>
         <url-pattern>/AlunoController</url-pattern>
+    </servlet-mapping>   
+    <servlet>
+        <description/>
+        <display-name>ProfessorController</display-name>
+        <servlet-name>ProfessorController</servlet-name>
+        <servlet-class>CRUD.controller.ProfessorController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfessorController</servlet-name>
+        <url-pattern>/ProfessorController</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+        <description/>
+        <display-name>CursoController</display-name>
+        <servlet-name>CursoController</servlet-name>
+        <servlet-class>CRUD.controller.CursoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CursoController</servlet-name>
+        <url-pattern>/CursoController</url-pattern>
+    </servlet-mapping>    
+    <servlet>
+        <description/>
+        <display-name>TurmaController</display-name>
+        <servlet-name>TurmaController</servlet-name>
+        <servlet-class>CRUD.controller.TurmaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TurmaController</servlet-name>
+        <url-pattern>/TurmaController</url-pattern>
+    </servlet-mapping>    
+    <servlet>
+        <description/>
+        <display-name>MatriculaController</display-name>
+        <servlet-name>MatriculaController</servlet-name>
+        <servlet-class>CRUD.controller.MatriculaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MatriculaController</servlet-name>
+        <url-pattern>/MatriculaController</url-pattern>
     </servlet-mapping>
 </web-app>

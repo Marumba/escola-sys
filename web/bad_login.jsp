@@ -4,7 +4,7 @@
     Author     : Marumba
 --%>
 
-<%@page import="CRUD.UsuarioController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="CRUD.controller.MainController" language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
